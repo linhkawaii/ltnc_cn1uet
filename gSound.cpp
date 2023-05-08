@@ -104,8 +104,7 @@ void gSound::renderSound(){
 bool gSound::checkSound(){
     int x, y;
     SDL_GetMouseState(&x, &y);
-    if (x > POS_X && x < POS_X + getWidth() &&
-        y > POS_Y && y < POS_Y + getHeight()) {       
+    if (x > POS_X && x < POS_X + getWidth() && y > POS_Y && y < POS_Y + getHeight()) {       
             isPlay = !isPlay;
             return true;
     }

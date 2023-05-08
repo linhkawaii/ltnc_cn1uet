@@ -7,23 +7,16 @@ using namespace std;
 class gSound : gUtils{
 public:
     bool init();
-
     void Free();
-
     void playBreath();
-
     void playDie();
-
     void playPoint();
-
     void playMenuSound();
-
     void renderSound();
-
     bool checkSound();
 
 private:
-    const int POS_X = SCREEN_WIDTH - 80; 
+    const int POS_X = SCREEN_WIDTH - 40; 
     const int POS_Y = 10;
     bool isPlay = 0;
 

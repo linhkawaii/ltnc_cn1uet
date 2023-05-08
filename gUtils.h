@@ -33,10 +33,6 @@ public:
     void getPos(const int x, const int y);
 };
 
-
-
-
-
 class gUtils {
 public:
     gUtils();

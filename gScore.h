@@ -11,13 +11,9 @@ private:
     SDL_Color textColor;
 
 public:
-
     bool init();
     void Free();
     void render(int score);
-
     void render_yourscore(int score);
-
     void render_bestscore(int score);
-
 };

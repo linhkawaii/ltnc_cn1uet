@@ -111,20 +111,6 @@ void gGame::renderBestScore(){
     fout.close();
 }
 
-void gGame::resume(){
-	gUtils image;
-	image.Load_Img("image/resume.png"); 
-	image.Render_Img(SCREEN_WIDTH - 40, 8);
-	image.free();
-}
-
-void gGame::pause(){
-	gUtils image;
-	image.Load_Img("image/pause.png"); 
-	image.Render_Img(SCREEN_WIDTH - 40, 8);
-	image.free();
-}
-
 void gGame::renderPauseTab(){
 	gUtils image;
 	image.Load_Img("image/pauseTab.png");

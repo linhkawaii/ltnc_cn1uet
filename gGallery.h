@@ -1,22 +1,49 @@
 #pragma once
 
 #include "gUtils.h"
-#include "gTree.h"
+
+
+class gBackground : gUtils{
+public:
+    bool init();
+
+    void Free();
+
+    void render();
+
+    void update();
+
+private:
+    Position posBackground;
+};
+
+
+extern vector<Position> posTree;
+
+class gTree : gUtils{
+private:
+    // random pipe verticly position
+    const int treeMin = -373 + 30;
+    const int treeMax = SCREEN_HEIGHT - 373 - tree_distance - 30;
+public:
+    bool init();
+    void Free();
+    void render();
+    void update();
+    int width() {return getWidth();}
+    int height() {return getHeight();}
+};
+
+
 
 class gBird : gUtils{
 public:
     bool init();
-
     void render();
-
     void Free();
-
     void resetTime() {
         time = 0;
     }
-
-    void fall();
-
     void update(int treeWidth, int treeHeight);
 private:
 

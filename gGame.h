@@ -1,9 +1,7 @@
 #pragma once
 
 #include "gUtils.h"
-#include "gBird.h"
-#include "gTree.h"
-#include "gBackground.h"
+#include "gGallery.h"
 #include "gSound.h"
 #include "gScore.h"
 
@@ -34,11 +32,11 @@ public:
         return die;
     }
 
-    int getPipeWidth() {
+    int getTreeWidth() {
         return tree.width();
     }
 
-    int getPipeHeight() {
+    int getTreeHeight() {
         return tree.height();
     }
 
@@ -55,10 +53,6 @@ public:
     void renderYourScore();
 
     void renderBestScore();
-
-    void resume();
-
-    void pause();
 
     void renderPauseTab();
 

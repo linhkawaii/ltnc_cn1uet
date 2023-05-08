@@ -13,7 +13,7 @@ void gMenu::displayy(){
     SDL_Rect dst = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
     SDL_RenderPresent(gRenderer);
     SDL_RenderCopy(gRenderer, gTexture, nullptr, &dst);
-    SDL_RenderClear(gRenderer);
+    //SDL_RenderClear(gRenderer);
 }
 
 void gMenu::render_bgStart(){

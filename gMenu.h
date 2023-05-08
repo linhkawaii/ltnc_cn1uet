@@ -10,23 +10,13 @@ private:
     gSound menu_sound;
 public:
     gMenu();
-
     void render_bgStart();
-
     bool checkStart();
-
     bool checkQuit_Start();
-
     bool checkHowToPlay();
-
     void renderHowToPlay();
-
     bool checkBack();
-
     void playMenuSound();
-
     void display();
-
     void displayy();
-    
 };

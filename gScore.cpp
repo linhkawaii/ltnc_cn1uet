@@ -7,7 +7,6 @@ bool gScore::init(){
     m_rect = {10, 5, 80, 50};
     m_rect1 = {345, 140, 10, 20};
     m_rect2 = {345, 185, 10, 20};
-
     m_font = TTF_OpenFont("font/Southern.ttf", 25);
     if (!m_font) return false;
     return true;
