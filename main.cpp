@@ -1,11 +1,8 @@
 #include "gGame.h"
 #include "gMenu.h"
 
-
 const int FPS = 60;
 const int frameDelay = 1000 / FPS;
-
-using namespace std;
 
 int main(int argc, char** argv){
     Uint32 frameStart;
@@ -30,6 +27,7 @@ int main(int argc, char** argv){
             }
             if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkHowToPlay()){
                 menu.renderHowToPlay();
+                menu.displayy();
                 SDL_Event E;
                 while (SDL_PollEvent(&e)){
                     if (E.type == SDL_MOUSEBUTTONDOWN && menu.checkBack()){
@@ -133,19 +131,19 @@ int main(int argc, char** argv){
                         } else if (g.checkQuit_Paused()){
                             return 0;
                         } else if (g.checkRestart()){
-                            // --------------------------------
                             isMenu = 0;
                             isPause = 0;
-                            g.tree.init();
-                            g.bird.init(); 
-                            g.bird.render();
-                            g.renderReady();  
-                            if (g.userInput.Type == gGame::input::PLAY) {
-                                g.Restart();
-                                isMenu = 1;
-                                g.userInput.Type = gGame::input::NONE;
-                            }
-                            g.background.update();
+                            g.setDie(1);
+                            // g.tree.init();
+                            // g.bird.init(); 
+                            // g.bird.render();
+                            // g.renderReady();  
+                            // if (g.userInput.Type == gGame::input::PLAY) {
+                            //     g.Restart();
+                            //     isMenu = 1;
+                            //     g.userInput.Type = gGame::input::NONE;
+                            // }
+                            // //g.background.update();
 
                         }
                         g.userInput.Type = gGame::input::NONE;
@@ -154,7 +152,9 @@ int main(int argc, char** argv){
                 g.display();
             }
 
-            //Limit FPS
+
+
+
             frameTime = SDL_GetTicks() - frameStart;
             if (frameDelay > frameTime) {
                 SDL_Delay(frameDelay - frameTime);

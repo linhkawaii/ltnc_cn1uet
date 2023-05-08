@@ -32,6 +32,8 @@ public:
         return die;
     }
 
+    void setDie(bool tmp);
+
     int getTreeWidth() {
         return tree.width();
     }

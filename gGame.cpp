@@ -75,6 +75,10 @@ void gGame::releaseGraphic(){
 // 	return success;
 // }
 
+void gGame::setDie(bool tmp){
+    die = tmp;
+}
+
 void gGame::display(){
     SDL_RenderPresent(gRenderer);
     SDL_RenderClear(gRenderer);
