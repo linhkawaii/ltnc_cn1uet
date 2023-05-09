@@ -6,25 +6,20 @@ using namespace std;
 
 class gSound : gUtils{
 public:
-    bool init();
-    void Free();
-    void playBreath();
+    bool loadSound();
+    void closeSound();
     void playDie();
-    void playPoint();
     void playMenuSound();
     void renderSound();
     bool checkSound();
 
 private:
-    const int POS_X = SCREEN_WIDTH - 40; 
-    const int POS_Y = 10;
+    Position posSound;
     bool isPlay = 0;
 
     //mẫu âm thanh được tải vào bộ nhớ
-    Mix_Chunk* breath = NULL;
     Mix_Chunk* die = NULL;
-    Mix_Chunk* point = NULL;
     Mix_Chunk* menu_sound = NULL;
-    SDL_Rect Mute ;
-    SDL_Rect Active ;
+    SDL_Rect Off ;
+    SDL_Rect On ;
 };

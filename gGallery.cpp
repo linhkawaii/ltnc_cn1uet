@@ -21,7 +21,7 @@ void gBackground::render(){
         Render_Img(posBackground.x, posBackground.y);
         Render_Img(posBackground.x + 1105, posBackground.y, 0, NULL);
     } else {
-        posBackground.getPos(0, 0 );
+        posBackground.getPos(0, 0);
         Render_Img(posBackground.x, posBackground.y);
     }
 }
@@ -57,23 +57,27 @@ void gTree::render(){
     for (signed char i = 0; i < tree_total; i++) {
 
         //vẽ ống trên
-        if (posTree[i].x <= SCREEN_WIDTH && posTree[i].x > -getWidth()) {
+        if (posTree[i].x <= SCREEN_WIDTH && posTree[i].x > -65) {
             Render_Img(posTree[i].x, posTree[i].y);
         }
 
         // vẽ ống dưới
-        Render_Img(posTree[i].x, posTree[i].y + getHeight() + tree_space, 180);
+        Render_Img(posTree[i].x, posTree[i].y + 373 + tree_space, 180);
     }
 }
 
 void gTree::update(){
     if (!die){
         for (signed char i = 0; i < tree_total; i++){
-            if (posTree[i].x < - getWidth()) {
+            if (posTree[i].x < - 65) {
                 posTree[i].y = (rand() % (treeMax - treeMin + 1)) + treeMin;
                 posTree[i].x = posTree[(i + tree_total - 1) % tree_total].x + tree_distance;
             } else {
                 posTree[i].x -= 3;
+                // double v = (double)(rand() % 11 - 5) / 10;
+                // cout << v << " " ;
+                // posTree[i].y -= 1;
+            
             }
         }
     }
@@ -81,9 +85,9 @@ void gTree::update(){
 
 
 bool gBird::init(){
-    string bird_path = "image/shiba.png";
+    string bird_path = "image/bird.png";
     if (saved_path == bird_path){
-        posBird.getPos(75 , SCREEN_HEIGHT / 2 - 10);
+        posBird.getPos(100 , SCREEN_HEIGHT / 2.5);
         ahead = 0;
         angle = 0;
     }

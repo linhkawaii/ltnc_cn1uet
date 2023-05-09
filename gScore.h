@@ -11,9 +11,11 @@ private:
     SDL_Color textColor;
 
 public:
-    bool init();
-    void Free();
+    gScore();
+    ~gScore();
     void render(int score);
     void render_yourscore(int score);
     void render_bestscore(int score);
+
+    void loadFont(string text, SDL_Rect rect);
 };

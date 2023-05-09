@@ -2,19 +2,14 @@
 
 gMenu::gMenu(){
     initSDL(gWindow, gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT, "Fly Birdie by nguyenkhanhlinh_22021158");
+    
 }
 
 void gMenu::display(){
     SDL_RenderPresent(gRenderer);
-    SDL_RenderClear(gRenderer);
-}
-
-void gMenu::displayy(){
-    SDL_Rect dst = {0, 0, SCREEN_WIDTH, SCREEN_HEIGHT};
-    //SDL_RenderPresent(gRenderer);
-    SDL_RenderCopy(gRenderer, gTexture, nullptr, &dst);
     //SDL_RenderClear(gRenderer);
 }
+
 
 void gMenu::render_bgStart(){
     gUtils image;
@@ -58,7 +53,7 @@ bool gMenu::checkBack(){
     return false;
 }
 
-void gMenu::playMenuSound(){
-    menu_sound.init();
-    menu_sound.playMenuSound();
-}
+// void gMenu::playMenuSound(){
+//     menu_sound.loadSound();
+//     menu_sound.playMenuSound();
+// }

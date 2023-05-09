@@ -18,14 +18,14 @@ gGame::gGame(){
     //initGraphic();
     tree.init();
     background.init();
-    sound.init();
+    sound.loadSound();
 }
 
 gGame::~gGame(){
     bird.Free();
     tree.Free();
     background.Free();
-    sound.Free();
+    sound.closeSound();
     free();
     releaseGraphic();
 }
@@ -36,6 +36,7 @@ void gGame::releaseGraphic(){
     SDL_DestroyRenderer( gRenderer );
     gRenderer = NULL;
     IMG_Quit();
+    Mix_Quit();
     TTF_Quit();
     SDL_Quit();
 }
