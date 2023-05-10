@@ -25,6 +25,8 @@ int main(int argc, char** argv){
                 if (e.type == SDL_QUIT || (e.type == SDL_MOUSEBUTTONDOWN && menu.checkQuit_Start())){
                     Menu = false;
                     running = false;
+                    exit(0);
+                    // return 0;
                 }
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkHowToPlay()){
                     Menu = false;
@@ -53,12 +55,12 @@ int main(int argc, char** argv){
                     }
                     if (E.type == SDL_MOUSEBUTTONDOWN && menu.checkBack()){
                         Menu = true;
+                        check=false;
                         checkback = true;
                         break;
                     }
                 }
                 if(checkback){
-                    //======================
                     break;
                 }
             }
@@ -71,7 +73,7 @@ int main(int argc, char** argv){
 
     if (running == true){
         gGame g;
-
+        g.sound.playMenuSound();
         while(!g.isQuit()) {
             if (g.isDie()) { 
                 if (isMenu) { 
