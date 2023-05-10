@@ -17,7 +17,6 @@ private:
     Position posSound;
     bool isPlay = 0;
 
-    //mẫu âm thanh được tải vào bộ nhớ
     Mix_Chunk* die = NULL;
     Mix_Chunk* menu_sound = NULL;
     SDL_Rect Off ;

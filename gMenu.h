@@ -1,13 +1,11 @@
 #pragma once
 
 #include "gUtils.h"
-#include "gSound.h"
 
 class gMenu : public gUtils{
 private:
     Position posMenu;
     string menu_path = "image/bg_start.png";
-    gSound menu_sound;
     SDL_Texture* menuScreen;
 public:
     gMenu();
@@ -18,6 +16,5 @@ public:
     bool checkHowToPlay();
     void renderHowToPlay();
     bool checkBack();
-    // void playMenuSound();
     void display();
 };

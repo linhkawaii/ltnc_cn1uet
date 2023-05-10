@@ -17,14 +17,14 @@ void gGame::takeInput(){
 gGame::gGame(){
     //initGraphic();
     tree.init();
-    background.init();
+    //background.init();
     sound.loadSound();
 }
 
 gGame::~gGame(){
     bird.Free();
     tree.Free();
-    background.Free();
+    //background.Free();
     sound.closeSound();
     free();
     releaseGraphic();
@@ -40,41 +40,6 @@ void gGame::releaseGraphic(){
     TTF_Quit();
     SDL_Quit();
 }
-
-// bool gGame::initGraphic(){
-// 	bool success = true;
-
-// 	if( SDL_Init( SDL_INIT_VIDEO ) < 0 ){
-// 		success = false;
-// 	}else{
-// 		if( !SDL_SetHint( SDL_HINT_RENDER_SCALE_QUALITY, "1" ) ){
-// 		}
-
-// 		gWindow = SDL_CreateWindow( "Fly Birdie", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, SCREEN_WIDTH, SCREEN_HEIGHT, SDL_WINDOW_SHOWN );
-
-// 		if( gWindow == NULL ){
-// 			success = false;
-// 		}else{
-// 			gRenderer = SDL_CreateRenderer( gWindow, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_PRESENTVSYNC );
-// 			if( gRenderer == NULL )	{
-// 				success = false;
-// 			}else{
-// 				SDL_SetRenderDrawColor( gRenderer, 0xFF, 0xFF, 0xFF, 0xFF );
-
-// 				int imgFlags = IMG_INIT_PNG;
-// 				if( !( IMG_Init( imgFlags ) & imgFlags ) ){
-// 					success = false;
-// 				}
-
-// 				if( TTF_Init() == -1 ){
-// 					success = false;
-// 				}
-// 			}
-// 		}
-// 	}
-
-// 	return success;
-// }
 
 void gGame::setDie(bool tmp){
     die = tmp;
@@ -170,45 +135,3 @@ void gGame::Restart(){
     score = 0;
     bird.resetTime();
 }
-
-// void gGame::render_bgStart(){
-//     gUtils image;
-//     image.Load_Img("image/bg_start.png");
-//     image.Render_Img(0, 0);
-//     image.free();
-// }
-
-// bool gGame::checkStart(){
-//     int x, y;
-//     SDL_GetMouseState(&x, &y);
-//     if (x > 322 && x < 322 + 190 && y > 212 && y < 212 + 41) return true;
-//     return false;
-// }
-
-// bool gGame::checkQuit_Start(){
-//     int x, y;
-//     SDL_GetMouseState(&x, &y);
-//     if (x > 322 && x < 322 + 190 && y > 255 && y < 255 + 41) return true;
-//     return false;
-// }
-
-// bool gGame::checkHowToPlay(){
-//     int x, y;
-//     SDL_GetMouseState(&x, &y);
-//     if (x > 322 && x < 322 + 190 && y > 298 && y < 298 + 41) return true;
-//     return false;
-// }
-
-// void gGame::renderHowToPlay(){
-//     gUtils image;
-//     image.Load_Img("image/howToPlay.png");
-//     image.Render_Img(0, 0);
-//     image.free();
-// }
-
-// bool gGame::checkBack(){
-//     int x, y;
-//     SDL_GetMouseState(&x, &y);
-//     if (x > 204 && x < 204 + 190 && y > 254 && y < 254 + 41) return true;
-//     return false;
-// }

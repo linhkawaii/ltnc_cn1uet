@@ -8,7 +8,7 @@ bool gSound::loadSound(){
     posSound.getPos(560, 10);
     bool success = true;
  
-    if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO) < 0)    {
+    if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO) < 0){
         success = false;
     } else {
         if( Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048) < 0 ) {

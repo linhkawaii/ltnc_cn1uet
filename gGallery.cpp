@@ -1,16 +1,12 @@
 #include "gGallery.h"
 
-bool gBackground::init(){
+gBackground::gBackground(){
     posBackground.getPos(0, 0);
     string back_path = "image/sky.png";
-    if (isNULL()){
-        if ( Load_Img( back_path.c_str()) ) return true;
-        else return false;
-    }
-    return false;
+    Load_Img( back_path.c_str());
 }
 
-void gBackground::Free(){
+gBackground::~gBackground(){
     free();
 }
 
@@ -27,7 +23,7 @@ void gBackground::render(){
 }
 
 
-void gBackground::update(){
+void gBackground::moveBackground(){
     posBackground.x -= 3; 
 }
 
@@ -41,11 +37,10 @@ bool gTree::init(){
         temp.getPos(SCREEN_WIDTH + i * tree_distance + 350, (rand() % (treeMax - treeMin + 1)) + treeMin);
         posTree.push_back(temp);
     }
-    if (isNULL()) {
-        if (Load_Img( "image/pipe.png")){
+    if (Load_Img( "image/tree.png")){
             return true;
         }
-    }
+    
     return false;
 }
 
@@ -74,10 +69,6 @@ void gTree::update(){
                 posTree[i].x = posTree[(i + tree_total - 1) % tree_total].x + tree_distance;
             } else {
                 posTree[i].x -= 3;
-                // double v = (double)(rand() % 11 - 5) / 10;
-                // cout << v << " " ;
-                // posTree[i].y -= 1;
-            
             }
         }
     }
@@ -91,7 +82,7 @@ bool gBird::init(){
         ahead = 0;
         angle = 0;
     }
-    if (isNULL() || saved_path != bird_path){
+    if (saved_path != bird_path){
         saved_path = bird_path;
         if ( Load_Img(bird_path.c_str())) return true;
         else return false;
@@ -122,14 +113,20 @@ void gBird::update(int treeWidth, int treeHeight){
             time++;
         }
 
-        if ( (posBird.x + getWidth() > posTree[ahead].x + 5) && (posBird.x + 0 < posTree[ahead].x + treeWidth) &&
-             (posBird.y + 5 < posTree[ahead].y + treeHeight || posBird.y  + getHeight() > posTree[ahead].y + treeHeight + tree_space + 5) ) {
+        //cout << time << "  " << x0 << "  " << angle << endl;
+
+        // when the bird touch the tree
+        if ( (posBird.x + bird_width > posTree[ahead].x + 5) && (posBird.x + 5 < posTree[ahead].x + treeWidth) &&
+             (posBird.y + 5 < posTree[ahead].y + treeHeight || posBird.y  + bird_height > posTree[ahead].y + treeHeight + tree_space + 5) ) {
             die = true;
+
+        // when the bird fly pass the tree
         } else if (posBird.x > posTree[ahead].x + treeWidth ) {
             ahead = ( ahead + 1 ) % tree_total;
             score++;        
         }
 
+        // when the bird fly out of the screen
         if (posBird.y > SCREEN_HEIGHT -  bird_height || posBird.y < - 10 ) {
             die = true;
         }

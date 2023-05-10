@@ -7,7 +7,7 @@ gMenu::gMenu(){
 
 void gMenu::display(){
     SDL_RenderPresent(gRenderer);
-    //SDL_RenderClear(gRenderer);
+    SDL_RenderClear(gRenderer);
 }
 
 
@@ -49,11 +49,6 @@ void gMenu::renderHowToPlay(){
 bool gMenu::checkBack(){
     int x, y;
     SDL_GetMouseState(&x, &y);
-    if (x > 204 && x < 204 + 190 && y > 254 && y < 254 + 41) return true;
+    if (x > 205 && x < 205 + 190 && y > 240 && y < 240 + 41) return true;
     return false;
 }
-
-// void gMenu::playMenuSound(){
-//     menu_sound.loadSound();
-//     menu_sound.playMenuSound();
-// }

@@ -41,37 +41,23 @@ public:
     int getTreeHeight() {
         return tree.height();
     }
-
     void takeInput();
-
     void display();
-
     void releaseGraphic();
-
     void renderReady();
-
     void renderTextScore();
-
     void renderYourScore();
-
     void renderBestScore();
-
     void renderPauseTab();
-
     void renderGameOver();
-
     bool checkResume();
-
     bool checkRestart();
-
     bool checkQuit_Paused();
-    
     bool checkReplay();
-
     bool checkQuit_GameOver();
-
     void Restart();
 
+    void run();
 
 private: 
     int bestScore;

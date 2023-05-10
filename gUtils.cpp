@@ -58,10 +58,10 @@ bool gUtils::Load_Img(string path){
 	return gTexture != NULL;
 }
 
-bool gUtils::isNULL(){
-    if (gTexture == NULL) return true;
-    return false;
-}
+// bool gUtils::isNULL(){
+//     if (gTexture == NULL) return true;
+//     return false;
+// }
 
 void Position::getPos(const int x, const int y){
     this->x = x;

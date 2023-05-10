@@ -24,7 +24,7 @@ const int tree_distance = 220;
 
 //bird size
 const int bird_width = 60;
-const int bird_height = 47;
+const int bird_height = 48;
 
 
 class Position{
@@ -39,7 +39,7 @@ public:
 
     ~gUtils() {}
 
-    bool isNULL();
+    //bool isNULL();
 
     bool Load_Img(string path);
 
@@ -56,8 +56,6 @@ public:
                 SDL_Rect* clip = NULL,
                 SDL_RendererFlip flip = SDL_FLIP_NONE);
 
-
-public:
     SDL_Texture* gTexture;
 
     int tWidth;
