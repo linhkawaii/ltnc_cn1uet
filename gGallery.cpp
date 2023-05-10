@@ -27,7 +27,6 @@ void gBackground::moveBackground(){
     posBackground.x -= 3; 
 }
 
-
 vector<Position> posTree;
 
 bool gTree::init(){
@@ -99,7 +98,7 @@ void gBird::render(){
     Render_Img(posBird.x, posBird.y, angle);
 }
 
-void gBird::update(int treeWidth, int treeHeight){
+void gBird::update(){
     if (!die) {
         if (time == 0){
             x0 = posBird.y;
@@ -113,15 +112,13 @@ void gBird::update(int treeWidth, int treeHeight){
             time++;
         }
 
-        //cout << time << "  " << x0 << "  " << angle << endl;
-
         // when the bird touch the tree
-        if ( (posBird.x + bird_width > posTree[ahead].x + 5) && (posBird.x + 5 < posTree[ahead].x + treeWidth) &&
-             (posBird.y + 5 < posTree[ahead].y + treeHeight || posBird.y  + bird_height > posTree[ahead].y + treeHeight + tree_space + 5) ) {
+        if ( (posBird.x + bird_width > posTree[ahead].x + 5) && (posBird.x + 5 < posTree[ahead].x + tree_width) &&
+             (posBird.y + 5 < posTree[ahead].y + tree_height || posBird.y  + bird_height > posTree[ahead].y + tree_height + tree_space + 5) ) {
             die = true;
 
         // when the bird fly pass the tree
-        } else if (posBird.x > posTree[ahead].x + treeWidth ) {
+        } else if (posBird.x > posTree[ahead].x + tree_width ) {
             ahead = ( ahead + 1 ) % tree_total;
             score++;        
         }

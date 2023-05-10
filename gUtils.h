@@ -19,8 +19,9 @@ const int SCREEN_HEIGHT = 400;
 //tree size
 const int tree_space = 160;
 const int tree_total = 4;
-const int tree_size = 65;
 const int tree_distance = 220;
+const int tree_width = 65;
+const int tree_height = 373;
 
 //bird size
 const int bird_width = 60;
@@ -38,8 +39,6 @@ public:
     gUtils();
 
     ~gUtils() {}
-
-    //bool isNULL();
 
     bool Load_Img(string path);
 

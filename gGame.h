@@ -34,13 +34,6 @@ public:
 
     void setDie(bool tmp);
 
-    int getTreeWidth() {
-        return tree.width();
-    }
-
-    int getTreeHeight() {
-        return tree.height();
-    }
     void takeInput();
     void display();
     void releaseGraphic();

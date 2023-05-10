@@ -29,8 +29,6 @@ public:
     void Free();
     void render();
     void update();
-    int width() { return getWidth(); }
-    int height() { return getHeight(); }
 };
 
 
@@ -44,7 +42,7 @@ public:
     {
         time = 0;
     }
-    void update(int treeWidth, int treeHeight);
+    void update();
 
 private:
     // time : biểu thị thời gian đã trôi qua kể từ lần cuối cùng con chim được nhảy. Được sử dụng để tính toán vị trí của con chim trên trục y khi điều khiển di chuyển của nó

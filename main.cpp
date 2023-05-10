@@ -23,7 +23,6 @@ int main(int argc, char** argv){
             menu.display();
             while (SDL_PollEvent(&e)){
                 if (e.type == SDL_QUIT || (e.type == SDL_MOUSEBUTTONDOWN && menu.checkQuit_Start())){
-                    check = false;
                     Menu = false;
                     running = false;
                 }
@@ -52,7 +51,7 @@ int main(int argc, char** argv){
                     if (E.type == SDL_QUIT){
                         return 0;
                     }
-                    if (E.type == SDL_KEYDOWN && E.key.keysym.sym == SDLK_SPACE){
+                    if (E.type == SDL_MOUSEBUTTONDOWN && menu.checkBack()){
                         Menu = true;
                         checkback = true;
                         break;
@@ -139,7 +138,7 @@ int main(int argc, char** argv){
 
                 if (!isPause) {
                     g.sound.renderSound();
-                    g.bird.update(g.getTreeWidth(), g.getTreeHeight());
+                    g.bird.update();//g.getTreeWidth(), g.getTreeHeight());
                     g.background.moveBackground();
                     g.tree.update();
                 } else {

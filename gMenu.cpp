@@ -1,7 +1,7 @@
 #include "gMenu.h"
 
 gMenu::gMenu(){
-    initSDL(gWindow, gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT, "Fly Birdie by nguyenkhanhlinh_22021158");
+    initSDL(gWindow, gRenderer, SCREEN_WIDTH, SCREEN_HEIGHT, "Fly Birdie");
     
 }
 
