@@ -1,2 +1,2 @@
-# AdvancedProgram_k67uet
+# ltnc_cn1uet
 Welcome to my game!
