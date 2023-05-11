@@ -31,7 +31,7 @@ vector<Position> posTree;
 
 bool gTree::init(){
     posTree.clear();
-    for (signed char i = 0; i < tree_total; i++) {
+    for (int i = 0; i < tree_total; i++) {
         Position temp;
         temp.getPos(SCREEN_WIDTH + i * tree_distance + 350, (rand() % (treeMax - treeMin + 1)) + treeMin);
         posTree.push_back(temp);
@@ -48,7 +48,7 @@ void gTree::Free(){
 }
 
 void gTree::render(){
-    for (signed char i = 0; i < tree_total; i++) {
+    for (int i = 0; i < tree_total; i++) {
 
         // draw up-tree
         if (posTree[i].x <= SCREEN_WIDTH && posTree[i].x > -65) {
@@ -62,7 +62,7 @@ void gTree::render(){
 
 void gTree::update(){
     if (!die){
-        for (signed char i = 0; i < tree_total; i++){
+        for (int i = 0; i < tree_total; i++){
 
             // when tree move out of screen
             if (posTree[i].x < - 65) {
@@ -79,6 +79,7 @@ void gTree::update(){
             } else {
                 posTree[i].x -= 3;
 
+                // change direction
                 if (posTree[i].y <= treeMin || posTree[i].y >= treeMax){
                     posTree[i].direction *= -1;
                 }

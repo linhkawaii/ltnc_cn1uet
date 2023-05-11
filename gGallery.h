@@ -39,8 +39,7 @@ public:
     bool init();
     void render();
     void Free();
-    void resetTime()
-    {
+    void resetTime(){
         time = 0;
     }
     void update();

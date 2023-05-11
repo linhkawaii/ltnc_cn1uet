@@ -26,7 +26,6 @@ int main(int argc, char** argv){
                     Menu = false;
                     running = false;
                     exit(0);
-                    // return 0;
                 }
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkHowToPlay()){
                     Menu = false;
@@ -140,7 +139,7 @@ int main(int argc, char** argv){
 
                 if (!isPause) {
                     g.sound.renderSound();
-                    g.bird.update();//g.getTreeWidth(), g.getTreeHeight());
+                    g.bird.update();
                     g.background.moveBackground();
                     g.tree.update();
                 } else {
@@ -164,9 +163,7 @@ int main(int argc, char** argv){
                 }
                 g.display();
             }
-
-
-
+            
 
             frameTime = SDL_GetTicks() - frameStart;
             if (frameDelay > frameTime) {
