@@ -50,12 +50,12 @@ void gTree::Free(){
 void gTree::render(){
     for (signed char i = 0; i < tree_total; i++) {
 
-        //vẽ ống trên
+        // draw up-tree
         if (posTree[i].x <= SCREEN_WIDTH && posTree[i].x > -65) {
             Render_Img(posTree[i].x, posTree[i].y);
         }
 
-        // vẽ ống dưới
+        // draw down-tree
         Render_Img(posTree[i].x, posTree[i].y + 373 + tree_space, 180);
     }
 }
@@ -63,11 +63,26 @@ void gTree::render(){
 void gTree::update(){
     if (!die){
         for (signed char i = 0; i < tree_total; i++){
+
+            // when tree move out of screen
             if (posTree[i].x < - 65) {
+
+                // random tree.y
                 posTree[i].y = (rand() % (treeMax - treeMin + 1)) + treeMin;
+
+                // tree.x = prev tree.x + tree_distance
                 posTree[i].x = posTree[(i + tree_total - 1) % tree_total].x + tree_distance;
+
+                // update tree's direction
+                posTree[i].direction = (rand() % 2 == 0) ? -1 : 1;
+
             } else {
                 posTree[i].x -= 3;
+
+                if (posTree[i].y <= treeMin || posTree[i].y >= treeMax){
+                    posTree[i].direction *= -1;
+                }
+                posTree[i].y += posTree[i].direction * 1;
             }
         }
     }
@@ -102,7 +117,7 @@ void gBird::update(){
     if (!die) {
         if (time == 0){
             x0 = posBird.y;
-            angle = -25;
+            angle = -20;
         } else if (angle < 70 && time > 30) {
             angle += 3;
         }

@@ -21,8 +21,9 @@ class gTree : gUtils
 {
 private:
     // random pipe verticly position
-    const int treeMin = -373 + 30;
-    const int treeMax = SCREEN_HEIGHT - 373 - tree_distance - 30;
+    const int treeMin = -373 + 20;
+    const int treeMax = SCREEN_HEIGHT - 373 - tree_distance - 20;
+    
 
 public:
     bool init();

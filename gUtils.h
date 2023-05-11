@@ -30,7 +30,7 @@ const int bird_height = 48;
 
 class Position{
 public:
-    int x, y, angle;
+    int x, y, angle, direction;
     void getPos(const int x, const int y);
 };
 
