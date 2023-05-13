@@ -18,21 +18,33 @@ int main(int argc, char** argv){
     bool check = false;
     bool checkback = false;
     while (1){
+        menu.menuSound();
         while(Menu){
             menu.render_bgStart();
             menu.display();
             while (SDL_PollEvent(&e)){
-                if (e.type == SDL_QUIT || (e.type == SDL_MOUSEBUTTONDOWN && menu.checkQuit_Start())){
+                if (e.type == SDL_QUIT ){
                     Menu = false;
                     running = false;
                     exit(0);
                 }
+
+                if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkQuit_Start()){
+                    menu.clickSound();
+                    SDL_Delay(500);
+                    Menu = false;
+                    running = false;
+                    exit(0);
+                }
+
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkHowToPlay()){
+                    menu.clickSound();
                     Menu = false;
                     check = true;
                     break;
                 }
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkStart()){
+                    menu.clickSound();
                     running = true;
                     Menu = false;
                 }
@@ -53,6 +65,7 @@ int main(int argc, char** argv){
                         return 0;
                     }
                     if (E.type == SDL_MOUSEBUTTONDOWN && menu.checkBack()){
+                        menu.clickSound();
                         Menu = true;
                         check=false;
                         checkback = true;
@@ -65,6 +78,7 @@ int main(int argc, char** argv){
             }
         }
         if (running == true){
+            menu.freeSound();
             break;
         }
     }
@@ -72,10 +86,10 @@ int main(int argc, char** argv){
 
     if (running == true){
         gGame g;
-        g.sound.playMenuSound();
         while(!g.isQuit()) {
             if (g.isDie()) { 
-                if (isMenu) { 
+                
+                if (isMenu) {
                     g.sound.playDie();
                     g.bird.render();
                 }
@@ -84,9 +98,12 @@ int main(int argc, char** argv){
                     g.takeInput();
                     if (isMenu == 1 && g.userInput.Type == gGame::input::PLAY) {
                         if (g.checkReplay()){
+                            menu.clickSound();
                             isMenu = 0;
 
                         } else if (g.checkQuit_GameOver()){
+                            menu.clickSound();
+                            SDL_Delay(500);
                             return 0;
                         }
                         g.userInput.Type = gGame::input::NONE;
@@ -118,7 +135,7 @@ int main(int argc, char** argv){
 
 
             } else {
-                g.sound.playMenuSound();
+                
                 g.takeInput();
 
                 if (g.userInput.Type == gGame::input::PAUSE) {
@@ -127,7 +144,7 @@ int main(int argc, char** argv){
                 }
 
                 if (isPause == 0 && g.userInput.Type == gGame::input::PLAY) {
-                    if (isSound == 1)
+                    //if (isSound == 1) g.sound.playMenuSound();
                     g.bird.resetTime(); 
                     g.userInput.Type = gGame::input::NONE;
                 }
@@ -147,12 +164,17 @@ int main(int argc, char** argv){
                     g.sound.renderSound();
                     if (g.userInput.Type == gGame::input::PLAY) {
                         if (g.checkResume()){
+                            menu.clickSound();
                             isPause = 0;
                         } else if (g.sound.checkSound()){
+                            menu.clickSound();
                             isSound = !isSound;
                         } else if (g.checkQuit_Paused()){
+                            menu.clickSound();
+                            SDL_Delay(500);
                             return 0;
                         } else if (g.checkRestart()){
+                            menu.clickSound();
                             isMenu = 0;
                             isPause = 0;
                             g.setDie(1);

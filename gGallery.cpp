@@ -91,6 +91,25 @@ void gTree::update(){
 
 
 bool gBird::init(){
+    // if (chooseBird() == 1){
+    //     bird_path = "image/birdy/bird1.png";
+    // } else if (chooseBird() == 2){
+    //     bird_path = "image/birdy/bird2.png";
+    // } else if (chooseBird() == 3){
+    //     bird_path = "image/birdy/bird3.png";
+    // } else if (chooseBird() == 4){
+    //     bird_path = "image/birdy/bird4.png";
+    // } else if (chooseBird() == 5){
+    //     bird_path = "image/birdy/bird5.png";
+    // } else if (chooseBird() == 6){
+    //     bird_path = "image/birdy/bird6.png";
+    // } else if (chooseBird() == 7){
+    //     bird_path = "image/birdy/bird7.png";
+    // } else if (chooseBird() == 8){
+    //     bird_path = "image/birdy/bird8.png";
+    // } else if (chooseBird() == 9){
+    //     bird_path = "image/birdy/bird9.png";
+    // }
     string bird_path = "image/bird.png";
     if (saved_path == bird_path){
         posBird.getPos(100 , SCREEN_HEIGHT / 2.5);
@@ -145,3 +164,21 @@ void gBird::update(){
         }
     }
 }
+
+// void gBird::chooseBird(){
+//     int x, y;
+//     SDL_GetMouseState( &x, &y );
+//     if (x > 150 && x < 150 + 100 && y > 100 && y < 100 + 100) bird_path = "image/birdy/bird1.png";
+//     if (x > 250 && x < 250 + 100 && y > 100 && y < 100 + 100) bird_path = "image/birdy/bird2.png";
+//     if (x > 350 && x < 350 + 100 && y > 100 && y < 100 + 100) bird_path = "image/birdy/bird3.png";
+
+//     if (x > 150 && x < 150 + 100 && y > 200 && y < 200 + 100) bird_path = "image/birdy/bird4.png";
+//     if (x > 250 && x < 250 + 100 && y > 200 && y < 200 + 100) bird_path = "image/birdy/bird5.png";
+//     if (x > 350 && x < 350 + 100 && y > 200 && y < 200 + 100) bird_path = "image/birdy/bird6.png";
+
+//     if (x > 150 && x < 150 + 100 && y > 300 && y < 300 + 100) bird_path = "image/birdy/bird7.png";
+//     if (x > 250 && x < 250 + 100 && y > 300 && y < 300 + 100) bird_path = "image/birdy/bird8.png";
+//     if (x > 350 && x < 350 + 100 && y > 300 && y < 300 + 100) bird_path = "image/birdy/bird9.png";
+
+//     else return;
+// }

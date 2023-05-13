@@ -1,9 +1,9 @@
 #pragma once
 
 #include "gUtils.h"
+#include "gMenu.h"
 
-class gBackground : gUtils
-{
+class gBackground : gUtils{
 public:
     gBackground();
     ~gBackground();
@@ -17,8 +17,7 @@ private:
 
 extern vector<Position> posTree;
 
-class gTree : gUtils
-{
+class gTree : gUtils{
 private:
     // random pipe verticly position
     const int treeMin = -373 + 20;
@@ -33,8 +32,7 @@ public:
 };
 
 
-class gBird : gUtils
-{
+class gBird : gUtils{
 public:
     bool init();
     void render();
@@ -43,6 +41,7 @@ public:
         time = 0;
     }
     void update();
+    void chooseBird();
 
 private:
     // time : biểu thị thời gian đã trôi qua kể từ lần cuối cùng con chim được nhảy. Được sử dụng để tính toán vị trí của con chim trên trục y khi điều khiển di chuyển của nó
@@ -51,4 +50,6 @@ private:
     int ahead = 0;
     string saved_path = "";
     Position posBird;
+    // gMenu menuBird;
+    // string bird_path;
 };

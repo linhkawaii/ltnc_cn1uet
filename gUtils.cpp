@@ -58,11 +58,6 @@ bool gUtils::Load_Img(string path){
 	return gTexture != NULL;
 }
 
-// bool gUtils::isNULL(){
-//     if (gTexture == NULL) return true;
-//     return false;
-// }
-
 void Position::getPos(const int x, const int y){
     this->x = x;
     this->y = y;
@@ -82,6 +77,14 @@ void gUtils::initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
     int imgFlags = IMG_INIT_PNG;
     if( !( IMG_Init( imgFlags ) & imgFlags ) ){
         return;
+    }
+
+    if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO) < 0){
+        return;
+    } else {
+        if (Mix_OpenAudio(44100, MIX_DEFAULT_FORMAT, 2, 2048) == -1){
+            return;
+        }
     }
     
     if( TTF_Init() == -1 ){
