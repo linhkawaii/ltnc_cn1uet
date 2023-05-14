@@ -50,6 +50,4 @@ private:
     int ahead = 0;
     string saved_path = "";
     Position posBird;
-    // gMenu menuBird;
-    // string bird_path;
 };

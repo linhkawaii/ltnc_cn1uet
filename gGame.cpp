@@ -26,20 +26,20 @@ gGame::~gGame(){
     tree.Free();
     //background.Free();
     sound.closeSound();
-    free();
-    releaseGraphic();
+    quitSDL(gWindow, gRenderer);
+   // releaseGraphic();
 }
 
-void gGame::releaseGraphic(){
-    SDL_DestroyWindow( gWindow );
-    gWindow = NULL;
-    SDL_DestroyRenderer( gRenderer );
-    gRenderer = NULL;
-    IMG_Quit();
-    Mix_Quit();
-    TTF_Quit();
-    SDL_Quit();
-}
+// void gGame::releaseGraphic(){
+//     SDL_DestroyWindow( gWindow );
+//     gWindow = NULL;
+//     SDL_DestroyRenderer( gRenderer );
+//     gRenderer = NULL;
+//     IMG_Quit();
+//     Mix_Quit();
+//     TTF_Quit();
+//     SDL_Quit();
+// }
 
 void gGame::setDie(bool tmp){
     die = tmp;

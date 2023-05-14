@@ -11,10 +11,10 @@ int main(int argc, char** argv){
     bool isPause = 0;  
     bool isSound = 1;
 
-    bool running = false;
-    bool Menu = true;
     SDL_Event e;
     gMenu menu;
+    bool running = false;
+    bool Menu = true;
     bool check = false;
     bool checkback = false;
     while (1){
@@ -87,6 +87,7 @@ int main(int argc, char** argv){
     if (running == true){
         gGame g;
         while(!g.isQuit()) {
+            if (isSound) g.sound.playMenuSound();
             if (g.isDie()) { 
                 
                 if (isMenu) {

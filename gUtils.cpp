@@ -97,5 +97,8 @@ void gUtils::initSDL(SDL_Window* &window, SDL_Renderer* &renderer,
 void gUtils::quitSDL(SDL_Window* window, SDL_Renderer* renderer){
 	SDL_DestroyRenderer(renderer);
 	SDL_DestroyWindow(window);
+    IMG_Quit();
+    Mix_Quit();
+    TTF_Quit();
 	SDL_Quit();
 }
