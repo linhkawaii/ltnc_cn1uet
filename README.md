@@ -2,67 +2,70 @@
 
 ---
 
-### Giới thiệu bản thân
-Họ và tên: Nguyễn Khánh Linh - 22021158
+### Introduce myself
+Full name: Nguyen Khanh Linh - 22021158
 
-Lớp K67CC - trường Đại học Công nghệ
+Class K67CC - University of Engineering and Technology
 
 # Welcome to my game!
 ---
-Game được hoàn thành dựa trên game Flappy Bird kinh điển nhưng đã được bổ bổ sung thêm tính năng, đồ họa và âm thanh sao cho sinh động hơn.
 
-Game được viết bằng ngôn ngữ C++ sử dụng thư viện đồ họa SDL2.0 và được lập trình trên Visual Studio Code.
+The game was developed based on the classic Flappy Bird game but has been augmented with additional features, graphics and sounds to make it more lively.
 
-## Ngôn ngữ lập trình và công nghệ
-- Ngôn ngữ: C++
-- Thư viện đồ họa SDL2.0
-- IDE: Visual Studio Code (hoặc bất kì IDE nào khác hỗ trợ C++)
+The game is written in C++ using the SDL2.0 graphics library and programmed on Visual Studio Code.
 
-## Cài đặt
-- Bước 1: Tải xuống mã nguồn của trò chơi từ kho lưu trữ GitHub chính thức.
-- Bước 2: Giải nén tệp tin ZIP và mở trong IDE của bạn.
-- Bước 3: Sử dụng bộ tài nguyên SDL2.0 để biên dịch và chạy mã nguồn.
-- Bước 4: Tìm file main.exe và mở lên để bắt đầu trò chơi.
 
-## Mô tả
-### Giao diện mở đầu
-Người chơi sẽ bắt đầu game với 3 tùy chọn: ***start***, ***quit*** hoặc ***how to play*** (xem hướng dẫn chơi game).
+## Programming language and technology
+- Language: C++
+- Graphics library SDL2.0
+- IDE: Visual Studio Code (or any another IDE that supports C++)
+
+## Setting
+- Step 1: Download the game source code from the official GitHub repository.
+- Step 2: Unzip the ZIP file and open it in your IDE.
+- Step 3: Use the SDL2.0 resource kit to compile and run the source code.
+- Step 4: Locate the main.exe file and open it to start playing the game.
+
+
+## Description
+### Start Screen
+Players will start the game with three options: ***start***, ***quit*** or ***how to play*** (to view game instructions).
 
 ![Menu](img_readme/bg_start.png)
 
-### Cách chơi
-Game đã được cải tiến so với phiên bản trước, các cột di chuyển linh hoạt để tăng thử thách cho người chơi. Người chơi sử dụng phím `SPACE` hoặc phím `UP` hoặc ***click chuột*** để điều khiển con chim bay qua các cột trên đường bay. Nhiệm vụ của bạn là điều khiển con chim để tránh va chạm vào các cột hoặc màn hình game và thu thập điểm số.
+### Gameplay
+- The game has been improved from the previous version, with columns that move flexibly to increase the challenge for players. Players use the `SPACE` key or the `UP` key or ***click the mouse*** to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points.
 
 
-Bạn có thể tạm dừng game trong khi chơi bằng cách ấn phím `Esc`, ở đây bạn có các tùy chọn: điều chỉnh âm thanh, ***resume***, ***restart*** hoặc ***quit***.
+- You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** hoặc ***quit***.
 
 ![paused](img_readme/pause.jpg)
 
 
-Khi kết thúc game, màn hình sẽ hiển thị điểm của bạn và số điểm cao nhất từng được cập nhật. Ở đây bạn có thể ***replay*** hoặc ***quit***.
+- When the game ends, the screen will display your score and the best score ever updated. Here you can choose to ***replay*** or ***quit***.
 
 ![gameOver](img_readme/game_over.jpg)
 
 
-## Kỹ thuật lập trình
-- Struct và Class
+## Programming Techniques
+- Struct and Class
 - Vector
-- Đọc, ghi file
-- Chia file theo đối tượng
-- Đồ họa
+- Reading and writing Files
+- Separating Files by Objects
+- Graphics
 
-## Các nguồn tham khảo
-- Code tham khảo tại https://lazyfoo.net/tutorials/SDL/
-- Phần mềm chỉnh sửa ảnh https://www.canva.com/ và https://www.remove.bg/
-- Nhiều hình ảnh và âm thanh được lấy từ các nguồn khác nhau tại https://www.google.com/?hl=vi
+## References
+- Reference code at https://lazyfoo.net/tutorials/SDL/.
+- Image editing software at https://www.canva.com/ and https://www.remove.bg/.
+- Many images and sounds are taken from different sources at https://www.google.com/?hl=vi.
 
-## Tái bút
-Em xin gửi lời cảm ơn tới
-- thầy Trần Quốc Long, thầy Tạ Việt Cường
-- thầy Lê Bằng Giang
-- các bạn lớp K67CC đáng yêu
+## Postscript
+I would like express my gratitude to:
+- Mr. Tran Quoc Long, Mr. Ta Viet Cuong
+- Mr. Le Bang Giang
+- My lovely classmates in K67CC
 
-đã giúp em hoàn thành bài tập này
+for their help in completing this task.
 
-## Đóng góp
-Nếu bạn có đóng góp về game hoặc gặp khó khăn trong khi chơi game, hãy tạo Pull request hoặc báo cáo vấn đề mới. Rất cảm ơn bạn đã quan tâm đến trò chơi, chúc bạn có những khoảng khắc vui vẻ với trò chơi này.
+## Contribution
+If you have any contributions to the game or encounter difficulties while playing the game, please create a Pull request or report a new issue. Thank you very much for your interest in the game, and I wish you have enjoyable moments with this game.
