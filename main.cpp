@@ -99,11 +99,11 @@ int main(int argc, char** argv){
                     g.takeInput();
                     if (isMenu == 1 && g.userInput.Type == gGame::input::PLAY) {
                         if (g.checkReplay()){
-                            menu.clickSound();
+                            if (isSound)  menu.clickSound();
                             isMenu = 0;
 
                         } else if (g.checkQuit_GameOver()){
-                            menu.clickSound();
+                            if (isSound)  menu.clickSound();
                             SDL_Delay(500);
                             return 0;
                         }
@@ -165,17 +165,17 @@ int main(int argc, char** argv){
                     g.sound.renderSound();
                     if (g.userInput.Type == gGame::input::PLAY) {
                         if (g.checkResume()){
-                            menu.clickSound();
+                            if (isSound)  menu.clickSound();
                             isPause = 0;
                         } else if (g.sound.checkSound()){
-                            menu.clickSound();
+                            if (isSound)  menu.clickSound();
                             isSound = !isSound;
                         } else if (g.checkQuit_Paused()){
-                            menu.clickSound();
+                            if (isSound)  menu.clickSound();
                             SDL_Delay(500);
                             return 0;
                         } else if (g.checkRestart()){
-                            menu.clickSound();
+                            if (isSound)  menu.clickSound();
                             isMenu = 0;
                             isPause = 0;
                             g.setDie(1);
