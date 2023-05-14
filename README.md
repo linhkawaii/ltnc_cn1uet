@@ -28,6 +28,8 @@ The game is written in C++ using the SDL2.0 graphics library and programmed on V
 
 
 ## ***Description***
+***Let's assume you are living in a world without the game Flappy Bird 😁***
+
 ### ***Start Screen***
 Players will start the game with three options: ***start***, ***quit*** or ***how to play*** (to view game instructions).
 
