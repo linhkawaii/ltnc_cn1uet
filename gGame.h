@@ -49,7 +49,7 @@ public:
     bool checkReplay();
     bool checkQuit_GameOver();
     void Restart();
-
+    
     void run();
 
 private: 

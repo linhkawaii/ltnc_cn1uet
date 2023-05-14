@@ -8,6 +8,7 @@ class gSound : gUtils{
 public:
     bool loadSound();
     void closeSound();
+    void playPress();
     void playDie();
     void playMenuSound();
     void renderSound();
@@ -17,6 +18,7 @@ private:
     Position posSound;
     bool isPlay = 0;
 
+    Mix_Chunk* press = NULL;
     Mix_Chunk* die = NULL;
     Mix_Chunk* menu_sound = NULL;
     SDL_Rect Off ;

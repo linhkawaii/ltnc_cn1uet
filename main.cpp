@@ -87,7 +87,7 @@ int main(int argc, char** argv){
     if (running == true){
         gGame g;
         while(!g.isQuit()) {
-            if (isSound) g.sound.playMenuSound();
+            //if (isSound) g.sound.playMenuSound();
             if (g.isDie()) { 
                 
                 if (isMenu) {
@@ -145,7 +145,7 @@ int main(int argc, char** argv){
                 }
 
                 if (isPause == 0 && g.userInput.Type == gGame::input::PLAY) {
-                    //if (isSound == 1) g.sound.playMenuSound();
+                    if (isSound == 1) g.sound.playPress();
                     g.bird.resetTime(); 
                     g.userInput.Type = gGame::input::NONE;
                 }
