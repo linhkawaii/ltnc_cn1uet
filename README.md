@@ -39,7 +39,7 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 - The game has been improved from the previous version, with columns that move flexibly to increase the challenge for players. Players use the `SPACE` key or the `UP` key or ***click the mouse*** to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points.
 
 
-- You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** hoặc ***quit***.
+- You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** or ***quit***.
 
 ![paused](img_readme/pause.jpg)
 
