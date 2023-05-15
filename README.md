@@ -58,7 +58,7 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 - Graphics
 
 ## ***References***
-- Reference code at https://lazyfoo.net/tutorials/SDL/.
+- Reference code at https://lazyfoo.net/tutorials/SDL/ and https://www.youtube.com/.
 - Image editing software at https://www.canva.com/ and https://www.remove.bg/.
 - Many images and sounds are taken from different sources at https://www.google.com/?hl=vi.
 
