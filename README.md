@@ -2,12 +2,12 @@
 
 ---
 
-### Introduce myself
+### ***Introduce myself***
 Full name: Nguyen Khanh Linh - 22021158
 
 Class K67CC - University of Engineering and Technology
 
-# Welcome to my game!
+# ***Welcome to my game!***
 ---
 
 The game was developed based on the classic Flappy Bird game but has been augmented with additional features, graphics and sounds to make it more lively.
@@ -15,29 +15,31 @@ The game was developed based on the classic Flappy Bird game but has been augmen
 The game is written in C++ using the SDL2.0 graphics library and programmed on Visual Studio Code.
 
 
-## Programming language and technology
+## ***Programming language and Technology***
 - Language: C++
 - Graphics library SDL2.0
 - IDE: Visual Studio Code (or any another IDE that supports C++)
 
-## Setting
+## ***Setting***
 - Step 1: Download the game source code from the official GitHub repository.
 - Step 2: Unzip the ZIP file and open it in your IDE.
 - Step 3: Use the SDL2.0 resource kit to compile and run the source code.
 - Step 4: Locate the main.exe file and open it to start playing the game.
 
 
-## Description
-### Start Screen
+## ***Description***
+***Let's assume you are living in a world without the game Flappy Bird 😁***
+
+### ***Start Screen***
 Players will start the game with three options: ***start***, ***quit*** or ***how to play*** (to view game instructions).
 
 ![Menu](img_readme/bg_start.png)
 
-### Gameplay
+### ***Gameplay***
 - The game has been improved from the previous version, with columns that move flexibly to increase the challenge for players. Players use the `SPACE` key or the `UP` key or ***click the mouse*** to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points.
 
 
-- You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** hoặc ***quit***.
+- You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** or ***quit***.
 
 ![paused](img_readme/pause.jpg)
 
@@ -47,19 +49,19 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 ![gameOver](img_readme/game_over.jpg)
 
 
-## Programming Techniques
+## ***Programming Techniques***
 - Struct and Class
 - Vector
 - Reading and writing Files
 - Separating Files by Objects
 - Graphics
 
-## References
+## ***References***
 - Reference code at https://lazyfoo.net/tutorials/SDL/.
 - Image editing software at https://www.canva.com/ and https://www.remove.bg/.
 - Many images and sounds are taken from different sources at https://www.google.com/?hl=vi.
 
-## Postscript
+## ***Postscript***
 I would like express my gratitude to:
 - Mr. Tran Quoc Long, Mr. Ta Viet Cuong
 - Mr. Le Bang Giang
@@ -67,5 +69,8 @@ I would like express my gratitude to:
 
 for their help in completing this task.
 
-## Contribution
+## ***Contribution***
 If you have any contributions to the game or encounter difficulties while playing the game, please create a Pull request or report a new issue. Thank you very much for your interest in the game, and I wish you have enjoyable moments with this game.
+
+---
+---
