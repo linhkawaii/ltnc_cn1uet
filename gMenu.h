@@ -23,5 +23,4 @@ public:
     void renderHowToPlay();
     bool checkBack();
     void display();
-    //void renderBirdList();
 };

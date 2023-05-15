@@ -1,5 +1,5 @@
 #include "gGame.h"
-
+#include "gUtils.h"
 void gGame::takeInput(){
     while(SDL_PollEvent(&event) != 0) {
         if (event.type == SDL_QUIT) {
@@ -15,7 +15,6 @@ void gGame::takeInput(){
 }
 
 gGame::gGame(){
-    //initGraphic();
     tree.init();
     //background.init();
     sound.loadSound();
@@ -29,17 +28,6 @@ gGame::~gGame(){
     quitSDL(gWindow, gRenderer);
    // releaseGraphic();
 }
-
-// void gGame::releaseGraphic(){
-//     SDL_DestroyWindow( gWindow );
-//     gWindow = NULL;
-//     SDL_DestroyRenderer( gRenderer );
-//     gRenderer = NULL;
-//     IMG_Quit();
-//     Mix_Quit();
-//     TTF_Quit();
-//     SDL_Quit();
-// }
 
 void gGame::setDie(bool tmp){
     die = tmp;
@@ -134,4 +122,119 @@ void gGame::Restart(){
     die = false;
     score = 0;
     bird.resetTime();
+}
+
+void gGame::close(){
+    quitSDL(gWindow, gRenderer);
+}
+
+void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
+    int fps = 60;
+    int framedelay = 1000 / fps;
+    Uint32 framestart;
+    int frametime;
+    if (running){
+        while(!quit){
+            framestart = SDL_GetTicks();
+
+            if(die){
+                if (isMenu){
+                    sound.playDie();
+                    bird.render();
+                }
+                userInput.Type = input::NONE;
+                while (die && !quit){
+                    takeInput();
+                    if (isMenu && userInput.Type == input::PLAY){
+                        if(checkReplay()){
+                            if (isSound) sound.playClick();
+                            isMenu = 0;
+                        } else if (checkQuit_GameOver()){
+                            if (isSound) sound.playClick();
+                            SDL_Delay(500);
+                            return;
+                        }
+                        userInput.Type = input::NONE;
+                    }
+                    background.render();
+                    tree.render();
+
+                    if (isMenu){
+                        bird.render();
+                        renderGameOver();
+                        renderYourScore();
+                        renderBestScore();
+                    } else {
+                        tree.init();
+                        bird.init();
+                        bird.render();
+                        renderReady();
+                        if (userInput.Type == input::PLAY){
+                            Restart();
+                            isMenu = 1;
+                            userInput.Type = input::NONE;
+                        }
+                        background.moveBackground();
+                    }
+                    display();
+                }
+                tree.init();
+
+
+            } else {
+                takeInput();
+
+                if (userInput.Type == input::PAUSE){
+                    isPause = !isPause;
+                    userInput.Type = input::NONE;
+                }
+
+                if (isPause == 0 && userInput.Type == input::PLAY){
+                    if (isSound) sound.playPress();
+                    bird.resetTime();
+                    userInput.Type = input::NONE;
+                }
+
+                background.render();
+                tree.render();
+                bird.render();
+                renderTextScore();
+
+                if (!isPause){
+                    sound.renderSound();
+                    bird.update();
+                    background.moveBackground();
+                    tree.update();
+                } else {
+                    renderPauseTab();
+                    sound.renderSound();
+                    if (userInput.Type == input::PLAY){
+                        if (checkResume()){
+                            if (isSound) sound.playClick();
+                            isPause = 0;
+                        } else if (sound.checkSound()){
+                            if (isSound) sound.playClick();
+                            isSound = !isSound;
+                        } else if (checkQuit_Paused()){
+                            if (isSound) sound.playClick();
+                            SDL_Delay(500);
+                            return;
+                        } else if (checkRestart()){
+                            if (isSound) sound.playClick();
+                            isMenu = 0;
+                            isPause = 0;
+                            setDie(1);
+                        }
+                        userInput.Type = input::NONE;
+                    }
+                }
+                display();
+            }
+
+            frametime = SDL_GetTicks() - framestart;
+            if (framedelay > frametime){
+                SDL_Delay(framedelay - frametime);
+            }
+        }
+    }
 }

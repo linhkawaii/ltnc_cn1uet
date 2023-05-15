@@ -2,6 +2,7 @@
 
 
 bool gSound::loadSound(){
+    string click_path = "sound/click_music.wav";
     string press_path = "sound/press_music.wav";
     string die_path = "sound/die_music.wav";
     string menu_path = "sound/background_music.wav";
@@ -13,6 +14,10 @@ bool gSound::loadSound(){
         success = false;
     } else {
         if( Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048) < 0 ) {
+            success = false;
+        }
+        click = Mix_LoadWAV(click_path.c_str());
+        if (click == NULL){
             success = false;
         }
         press = Mix_LoadWAV(press_path.c_str());
@@ -44,6 +49,12 @@ void gSound::closeSound(){
     die = NULL;
     menu_sound = NULL;
     Mix_Quit();
+}
+
+void gSound::playClick(){
+    if (isPlay){
+        Mix_PlayChannel(-1, click, 0);
+    }
 }
 
 void gSound::playPress(){

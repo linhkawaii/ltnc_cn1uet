@@ -4,6 +4,7 @@
 #include "gGallery.h"
 #include "gSound.h"
 #include "gScore.h"
+#include "gMenu.h"
 
 class gGame : gUtils{
 public:
@@ -17,6 +18,7 @@ public:
     gSound sound;
     gBackground background;
     gScore gScore;
+
     
     gGame();
 
@@ -50,7 +52,8 @@ public:
     bool checkQuit_GameOver();
     void Restart();
     
-    void run();
+    void run(bool running, bool isMenu, bool isPause, bool isSound);
+    void close();
 
 private: 
     int bestScore;

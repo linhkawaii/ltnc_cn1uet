@@ -1,18 +1,12 @@
 #include "gGame.h"
 #include "gMenu.h"
 
-const int FPS = 60;
-const int frameDelay = 1000 / FPS;
-
 int main(int argc, char** argv){
-    Uint32 frameStart;
-    int frameTime;
-    bool isMenu = 0;
-    bool isPause = 0;  
-    bool isSound = 1;
-
     SDL_Event e;
     gMenu menu;
+    bool isTab = 0;
+    bool isPause = 0;  
+    bool isSound = 1;
     bool running = false;
     bool Menu = true;
     bool check = false;
@@ -83,118 +77,9 @@ int main(int argc, char** argv){
         }
     }
 
-
-    if (running == true){
-        gGame g;
-        while(!g.isQuit()) {
-            //if (isSound) g.sound.playMenuSound();
-            if (g.isDie()) { 
-                
-                if (isMenu) {
-                    g.sound.playDie();
-                    g.bird.render();
-                }
-                g.userInput.Type = gGame::input::NONE;
-                while(g.isDie() && !g.isQuit()) {
-                    g.takeInput();
-                    if (isMenu == 1 && g.userInput.Type == gGame::input::PLAY) {
-                        if (g.checkReplay()){
-                            if (isSound)  menu.clickSound();
-                            isMenu = 0;
-
-                        } else if (g.checkQuit_GameOver()){
-                            if (isSound)  menu.clickSound();
-                            SDL_Delay(500);
-                            return 0;
-                        }
-                        g.userInput.Type = gGame::input::NONE;
-                    }
-                    g.background.render();
-                    g.tree.render();
-
-                    if (isMenu) {
-                        g.bird.render();
-                        g.renderGameOver();
-                        g.renderYourScore();
-                        g.renderBestScore();
-
-                    } else {
-                        g.tree.init();
-                        g.bird.init(); 
-                        g.bird.render();
-                        g.renderReady();  
-                        if (g.userInput.Type == gGame::input::PLAY) {
-                            g.Restart();
-                            isMenu = 1;
-                            g.userInput.Type = gGame::input::NONE;
-                        }
-                        g.background.moveBackground();
-                    }
-                    g.display();
-                }
-                g.tree.init();
-
-
-            } else {
-                
-                g.takeInput();
-
-                if (g.userInput.Type == gGame::input::PAUSE) {
-                    isPause =  !isPause; 
-                    g.userInput.Type = gGame::input::NONE;
-                }
-
-                if (isPause == 0 && g.userInput.Type == gGame::input::PLAY) {
-                    if (isSound == 1) g.sound.playPress();
-                    g.bird.resetTime(); 
-                    g.userInput.Type = gGame::input::NONE;
-                }
-
-                g.background.render();
-                g.tree.render();
-                g.bird.render();
-                g.renderTextScore();
-
-                if (!isPause) {
-                    g.sound.renderSound();
-                    g.bird.update();
-                    g.background.moveBackground();
-                    g.tree.update();
-                } else {
-                    g.renderPauseTab(); 
-                    g.sound.renderSound();
-                    if (g.userInput.Type == gGame::input::PLAY) {
-                        if (g.checkResume()){
-                            if (isSound)  menu.clickSound();
-                            isPause = 0;
-                        } else if (g.sound.checkSound()){
-                            if (isSound)  menu.clickSound();
-                            isSound = !isSound;
-                        } else if (g.checkQuit_Paused()){
-                            if (isSound)  menu.clickSound();
-                            SDL_Delay(500);
-                            return 0;
-                        } else if (g.checkRestart()){
-                            if (isSound)  menu.clickSound();
-                            isMenu = 0;
-                            isPause = 0;
-                            g.setDie(1);
-
-                        }
-                        g.userInput.Type = gGame::input::NONE;
-                    }
-                }
-                g.display();
-            }
-            
-
-            frameTime = SDL_GetTicks() - frameStart;
-            if (frameDelay > frameTime) {
-                SDL_Delay(frameDelay - frameTime);
-            }
-        }        
-    }
-
+    gGame game;
+    game.run(running, isTab, isPause, isSound);
+    game.close();
     return 0;
 
 }
