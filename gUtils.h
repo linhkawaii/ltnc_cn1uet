@@ -31,7 +31,7 @@ const int bird_height = 48;
 class Position{
 public:
     int x, y;
-    int direction = 1;
+    int direction = rand() % 3 - 1;
     void getPos(const int x, const int y);
 };
 

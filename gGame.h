@@ -9,7 +9,7 @@
 class gGame : gUtils{
 public:
     struct input {
-        enum type { QUIT, PLAY, NONE, PAUSE};
+        enum type { QUIT, PLAY, NONE, PAUSE, CLICK};
         type Type;
     };
     input userInput;
@@ -21,21 +21,8 @@ public:
 
     
     gGame();
-
     ~gGame();
-
-    bool initGraphic();
-
-    bool isQuit() {
-        return quit; 
-    }
-
-    bool isDie() {
-        return die;
-    }
-
     void setDie(bool tmp);
-
     void takeInput();
     void display();
     void releaseGraphic();
@@ -51,7 +38,6 @@ public:
     bool checkReplay();
     bool checkQuit_GameOver();
     void Restart();
-    
     void run(bool running, bool isMenu, bool isPause, bool isSound);
     void close();
 

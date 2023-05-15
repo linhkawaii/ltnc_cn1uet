@@ -74,7 +74,7 @@ void gTree::update(){
                 posTree[i].x = posTree[(i + tree_total - 1) % tree_total].x + tree_distance;
 
                 // update tree's direction
-                posTree[i].direction = (rand() % 2 == 0) ? -1 : 1;
+                posTree[i].direction = rand() % 3 - 1;
 
             } else {
                 posTree[i].x -= 3;

@@ -44,9 +44,6 @@ public:
     void chooseBird();
 
 private:
-    // time : biểu thị thời gian đã trôi qua kể từ lần cuối cùng con chim được nhảy,
-    // được sử dụng để tính toán vị trí của con chim trên trục y khi điều khiển di chuyển của nó
-    // x0: là giá trị tọa độ y của con chim lúc nó bắt đầu rơi xuống hoặc nhảy lên.
     int angle, time, x0;
     int ahead = 0;
     string saved_path = "";

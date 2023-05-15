@@ -5,12 +5,13 @@ void gGame::takeInput(){
         if (event.type == SDL_QUIT) {
             userInput.Type = input::QUIT;
             quit = true;
-        } else if (event.type == SDL_MOUSEBUTTONDOWN || (event.type == SDL_KEYDOWN && 
-		(event.key.keysym.sym == SDLK_SPACE || event.key.keysym.sym == SDLK_UP) && event.key.repeat == 0 )){
+        } else if (event.type == SDL_KEYDOWN && (event.key.keysym.sym == SDLK_SPACE || event.key.keysym.sym == SDLK_UP) && event.key.repeat == 0 ){
             userInput.Type = input::PLAY;
         } else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE && event.key.repeat == 0){
 			userInput.Type = input::PAUSE;
-		}
+		} else if (event.type == SDL_MOUSEBUTTONDOWN){
+            userInput.Type = input::CLICK;
+        }
     }
 }
 
@@ -26,7 +27,6 @@ gGame::~gGame(){
     //background.Free();
     sound.closeSound();
     quitSDL(gWindow, gRenderer);
-   // releaseGraphic();
 }
 
 void gGame::setDie(bool tmp){
@@ -145,13 +145,13 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                 userInput.Type = input::NONE;
                 while (die && !quit){
                     takeInput();
-                    if (isMenu && userInput.Type == input::PLAY){
+                    if (isMenu && userInput.Type == input::CLICK){
                         if(checkReplay()){
                             if (isSound) sound.playClick();
                             isMenu = 0;
                         } else if (checkQuit_GameOver()){
                             if (isSound) sound.playClick();
-                            SDL_Delay(500);
+                            SDL_Delay(300);
                             return;
                         }
                         userInput.Type = input::NONE;
@@ -180,7 +180,6 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                 }
                 tree.init();
 
-
             } else {
                 takeInput();
 
@@ -195,6 +194,8 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                     userInput.Type = input::NONE;
                 }
 
+                
+
                 background.render();
                 tree.render();
                 bird.render();
@@ -208,7 +209,7 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                 } else {
                     renderPauseTab();
                     sound.renderSound();
-                    if (userInput.Type == input::PLAY){
+                    if (userInput.Type == input::CLICK){
                         if (checkResume()){
                             if (isSound) sound.playClick();
                             isPause = 0;
@@ -217,7 +218,7 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                             isSound = !isSound;
                         } else if (checkQuit_Paused()){
                             if (isSound) sound.playClick();
-                            SDL_Delay(500);
+                            SDL_Delay(300);
                             return;
                         } else if (checkRestart()){
                             if (isSound) sound.playClick();
@@ -231,10 +232,7 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                 display();
             }
 
-            frametime = SDL_GetTicks() - framestart;
-            if (framedelay > frametime){
-                SDL_Delay(framedelay - frametime);
-            }
+        
         }
     }
 }
