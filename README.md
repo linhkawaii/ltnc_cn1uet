@@ -22,9 +22,10 @@ The game is written in C++ using the SDL2.0 graphics library and programmed on V
 
 ## ***Setting***
 - Step 1: Download the game source code from the official GitHub repository.
-- Step 2: Unzip the ZIP file and open it in your IDE.
-- Step 3: Use the SDL2.0 resource kit to compile and run the source code.
-- Step 4: Locate the main.exe file and open it to start playing the game.
+- Step 2: Unzip the ZIP file.
+- Step 3: Locate the main.exe file and open it to start playing the game.
+
+If your screen displays the message ***Windows protected your PC***, please click on ***More info*** and then click on ***Run anyway***. 
 
 
 ## ***Description***
@@ -36,7 +37,7 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 ![Menu](img_readme/bg_start.png)
 
 ### ***Gameplay***
-- The game has been improved from the previous version, with columns that move unexpectedly and you cannot predict it beforehand. Players use the `SPACE` key or the `UP` key or ***click the mouse*** to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points.
+- The game has been improved from the previous version, with columns that move unexpectedly and you cannot predict it beforehand. Players use the `SPACE` key or the `UP` key or ***click the mouse*** to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points. When the bird flies over a column, you will get 1 point added.
 
 
 - You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** or ***quit***.
