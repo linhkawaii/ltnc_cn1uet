@@ -38,7 +38,7 @@ public:
     bool checkReplay();
     bool checkQuit_GameOver();
     void Restart();
-    void run(bool running, bool isMenu, bool isPause, bool isSound);
+    void run(bool running, bool isMenu, bool isPause);
     void close();
 
 private: 

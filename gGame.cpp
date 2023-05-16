@@ -10,6 +10,7 @@ void gGame::takeInput(){
         } else if (event.type == SDL_KEYDOWN && event.key.keysym.sym == SDLK_ESCAPE && event.key.repeat == 0){
 			userInput.Type = input::PAUSE;
 		} else if (event.type == SDL_MOUSEBUTTONDOWN){
+            sound.playClick();
             userInput.Type = input::CLICK;
         }
     }
@@ -128,7 +129,7 @@ void gGame::close(){
     quitSDL(gWindow, gRenderer);
 }
 
-void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
+void gGame::run(bool running, bool isMenu, bool isPause){
     int fps = 60;
     int framedelay = 1000 / fps;
     Uint32 framestart;
@@ -147,10 +148,8 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                     takeInput();
                     if (isMenu && userInput.Type == input::CLICK){
                         if(checkReplay()){
-                            if (isSound) sound.playClick();
                             isMenu = 0;
                         } else if (checkQuit_GameOver()){
-                            if (isSound) sound.playClick();
                             SDL_Delay(300);
                             return;
                         }
@@ -172,6 +171,7 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                         if (userInput.Type == input::PLAY){
                             Restart();
                             isMenu = 1;
+                            sound.setisPlay(1);
                             userInput.Type = input::NONE;
                         }
                         background.moveBackground();
@@ -189,7 +189,7 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                 }
 
                 if (isPause == 0 && userInput.Type == input::PLAY){
-                    if (isSound) sound.playPress();
+                    sound.playPress();
                     bird.resetTime();
                     userInput.Type = input::NONE;
                 }
@@ -211,20 +211,16 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                     sound.renderSound();
                     if (userInput.Type == input::CLICK){
                         if (checkResume()){
-                            if (isSound) sound.playClick();
                             isPause = 0;
                         } else if (sound.checkSound()){
-                            if (isSound) sound.playClick();
-                            isSound = !isSound;
                         } else if (checkQuit_Paused()){
-                            if (isSound) sound.playClick();
                             SDL_Delay(300);
                             return;
                         } else if (checkRestart()){
-                            if (isSound) sound.playClick();
                             isMenu = 0;
                             isPause = 0;
                             setDie(1);
+                            sound.setisPlay(1);
                         }
                         userInput.Type = input::NONE;
                     }
@@ -232,7 +228,11 @@ void gGame::run(bool running, bool isMenu, bool isPause, bool isSound){
                 display();
             }
 
-        
+            frametime = SDL_GetTicks() - framestart;
+            if (framedelay > frametime) {
+                SDL_Delay(framedelay - frametime);
+            }
+
         }
     }
 }

@@ -14,10 +14,11 @@ public:
     void playMenuSound();
     void renderSound();
     bool checkSound();
+    void setisPlay(bool tmp);
 
 private:
     Position posSound;
-    bool isPlay = 0;
+    bool isPlay;
 
     Mix_Chunk* click = NULL;
     Mix_Chunk* press = NULL;

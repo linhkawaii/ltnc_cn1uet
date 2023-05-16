@@ -6,7 +6,6 @@ int main(int argc, char** argv){
     gMenu menu;
     bool isTab = 0;
     bool isPause = 0;  
-    bool isSound = 1;
     bool running = false;
     bool Menu = true;
     bool check = false;
@@ -81,7 +80,7 @@ int main(int argc, char** argv){
     }
 
     gGame game;
-    game.run(running, isTab, isPause, isSound);
+    game.run(running, isTab, isPause);
     game.close();
     return 0;
 

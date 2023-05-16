@@ -42,6 +42,10 @@ bool gSound::loadSound(){
     return success;
 }
 
+void gSound::setisPlay(bool tmp){
+    isPlay = tmp;
+}
+
 void gSound::closeSound(){
     free();
     Mix_FreeChunk(die);
