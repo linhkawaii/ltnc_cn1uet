@@ -37,7 +37,7 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 ![Menu](img_readme/bg_start.png)
 
 ### ***Gameplay***
-- The game has been improved from the previous version, with columns that move unexpectedly and you cannot predict it beforehand. Players use the `SPACE` key or the `UP` key or ***click the mouse*** to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points. When the bird flies over a column, you will get 1 point added.
+- The game has been improved from the previous version, with columns that move unexpectedly and you cannot predict it beforehand. Players use the `SPACE` key or the `UP` key to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points. When the bird flies over a column, you will get 1 point added.
 
 
 - You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** or ***quit***.
