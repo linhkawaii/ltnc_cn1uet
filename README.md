@@ -14,18 +14,12 @@ The game was developed based on the classic Flappy Bird game but has been augmen
 
 The game is written in C++ using the SDL2.0 graphics library and programmed on Visual Studio Code.
 
-
-## ***Programming language and Technology***
-- Language: C++
-- Graphics library SDL2.0
-- IDE: Visual Studio Code (or any another IDE that supports C++)
-
 ## ***Setting***
 - Step 1: Download the game source code from the official GitHub repository.
 - Step 2: Unzip the ZIP file.
 - Step 3: Locate the main.exe file and open it to start playing the game.
 
-If your screen displays the message ***Windows protected your PC***, please click on ***More info*** and then click on ***Run anyway***. 
+If your screen displays the message ***Windows protected your PC***, please click on ***More info*** and then click on ***Run Anyway***. 
 
 
 ## ***Description***
