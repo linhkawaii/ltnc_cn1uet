@@ -122,7 +122,7 @@ bool gGame::checkQuit_GameOver(){
 void gGame::Restart(){
     die = false;
     score = 0;
-    bird.resetTime();
+    bird.resetFrame();
 }
 
 void gGame::close(){
@@ -190,12 +190,10 @@ void gGame::run(bool running, bool isMenu, bool isPause){
 
                 if (isPause == 0 && userInput.Type == input::PLAY){
                     sound.playPress();
-                    bird.resetTime();
+                    bird.resetFrame();
                     userInput.Type = input::NONE;
-                }
-
+                }  
                 
-
                 background.render();
                 tree.render();
                 bird.render();

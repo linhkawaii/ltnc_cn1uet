@@ -20,10 +20,10 @@ private:
     Position posSound;
     bool isPlay;
 
+    // sound file
     Mix_Chunk* click = NULL;
     Mix_Chunk* press = NULL;
     Mix_Chunk* die = NULL;
-    Mix_Chunk* menu_sound = NULL;
     SDL_Rect Off ;
     SDL_Rect On ;
 };

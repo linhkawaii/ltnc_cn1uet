@@ -16,6 +16,6 @@ public:
     void render(int score);
     void render_yourscore(int score);
     void render_bestscore(int score);
-
+    
     void loadFont(string text, SDL_Rect rect);
 };

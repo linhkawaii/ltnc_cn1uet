@@ -4,7 +4,6 @@
 #include "gGallery.h"
 #include "gSound.h"
 #include "gScore.h"
-#include "gMenu.h"
 
 class gGame : gUtils{
 public:

@@ -66,10 +66,3 @@ bool gMenu::checkBack(){
     if (x > 205 && x < 205 + 190 && y > 240 && y < 240 + 41) return true;
     return false;
 }
-
-// void gMenu::renderBirdList(){
-//     gUtils image;
-//     image.Load_Img("image/birdList.png");
-//     image.Render_Img(0, 0);
-//     image.free();
-// }

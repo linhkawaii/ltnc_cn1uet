@@ -13,6 +13,7 @@ private:
     
 public:
     gMenu();
+    
     void clickSound();
     void menuSound();
     void freeSound();

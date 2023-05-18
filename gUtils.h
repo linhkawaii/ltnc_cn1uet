@@ -38,7 +38,6 @@ public:
 class gUtils {
 public:
     gUtils();
-
     ~gUtils() {}
 
     bool Load_Img(string path);

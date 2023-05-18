@@ -20,8 +20,8 @@ extern vector<Position> posTree;
 class gTree : gUtils{
 private:
     // random pipe verticly position
-    const int treeMin = -373 + 20;
-    const int treeMax = SCREEN_HEIGHT - 373 - tree_distance - 20;
+    const int treeMin = -tree_height + 20;
+    const int treeMax = SCREEN_HEIGHT - tree_height - tree_distance - 20;
     
 
 public:
@@ -37,11 +37,10 @@ public:
     bool init();
     void render();
     void Free();
-    void resetTime(){
+    void resetFrame(){
         time = 0;
     }
     void update();
-    void chooseBird();
 
 private:
     int angle, time, x0;

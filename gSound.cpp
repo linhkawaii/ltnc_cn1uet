@@ -13,6 +13,7 @@ bool gSound::loadSound(){
     if (SDL_Init(SDL_INIT_AUDIO | SDL_INIT_VIDEO) < 0){
         success = false;
     } else {
+
         if( Mix_OpenAudio(22050, MIX_DEFAULT_FORMAT, 2, 2048) < 0 ) {
             success = false;
         }
@@ -26,10 +27,6 @@ bool gSound::loadSound(){
         }
         die = Mix_LoadWAV( die_path.c_str() );
         if (die == NULL) {
-            success = false;
-        }
-        menu_sound = Mix_LoadWAV( menu_path.c_str());
-        if ( menu_sound == NULL ) {
             success = false;
         }
         if (!Load_Img(sound_path)){
@@ -48,15 +45,19 @@ void gSound::setisPlay(bool tmp){
 
 void gSound::closeSound(){
     free();
+    //release memory type Mix_Chunk
     Mix_FreeChunk(die);
-    Mix_FreeChunk(menu_sound);
+    Mix_FreeChunk(press);
+    Mix_FreeChunk(click);
     die = NULL;
-    menu_sound = NULL;
+    press = NULL;
+    click = NULL;
     Mix_Quit();
 }
 
 void gSound::playClick(){
     if (isPlay){
+        // play sound once
         Mix_PlayChannel(-1, click, 0);
     }
 }
@@ -70,12 +71,6 @@ void gSound::playPress(){
 void gSound::playDie(){
     if (isPlay){
         Mix_PlayChannel(-1, die, 0);
-    }
-}
-
-void gSound::playMenuSound(){
-    if (isPlay){
-        Mix_PlayChannel(-1, menu_sound, 0);
     }
 }
 

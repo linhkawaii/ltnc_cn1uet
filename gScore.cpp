@@ -28,10 +28,13 @@ void gScore::loadFont(string text, SDL_Rect rect){
     
     gTexture = SDL_CreateTextureFromSurface(gRenderer, surface);
 
+    // get the size of gTexture and store it in rect
     SDL_QueryTexture(gTexture, nullptr, nullptr, &rect.w, &rect.h);
 
+    // render gTexture onto gRenderer with position and size defined by rect
     SDL_RenderCopy(gRenderer, gTexture, nullptr, &rect);
 
+    // release
     SDL_FreeSurface(surface);
     SDL_DestroyTexture(gTexture);
 }
