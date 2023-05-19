@@ -98,7 +98,7 @@ bool gBird::init(){
         angle = 0;
     }
     if (saved_path != bird_path){
-        cout << saved_path << " " << bird_path << endl;
+        // cout << saved_path << " " << bird_path << endl;
         saved_path = bird_path;
         if ( Load_Img(bird_path.c_str())) return true;
         else return false;
@@ -119,12 +119,12 @@ void gBird::update(){
     if (!die) {
         if (frame == 0){ 
             y_ = posBird.y;
-            angle = -20; 
+            angle = -20;
         } else if (angle < 70 && frame > 30) {
-            angle += 3;
+            angle += 3; 
         }
 
-        if (frame >= 0) {
+        if (frame >= 0) {          
             posBird.y = y_ + frame * frame * 0.18 - 7.3 * frame;
             frame++;
         }
