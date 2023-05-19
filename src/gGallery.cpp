@@ -36,7 +36,7 @@ bool gTree::init(){
         temp.getPos(SCREEN_WIDTH + i * tree_distance + 350, (rand() % (treeMax - treeMin + 1)) + treeMin);
         posTree.push_back(temp);
     }
-    if (Load_Img( "image/tree.png")){
+    if (isNull() && Load_Img( "image/tree.png")){
             return true;
         }
     
@@ -98,6 +98,7 @@ bool gBird::init(){
         angle = 0;
     }
     if (saved_path != bird_path){
+        cout << saved_path << " " << bird_path << endl;
         saved_path = bird_path;
         if ( Load_Img(bird_path.c_str())) return true;
         else return false;
@@ -116,16 +117,16 @@ void gBird::render(){
 
 void gBird::update(){
     if (!die) {
-        if (time == 0){
-            x0 = posBird.y;
-            angle = -20;
-        } else if (angle < 70 && time > 30) {
+        if (frame == 0){ 
+            y_ = posBird.y;
+            angle = -20; 
+        } else if (angle < 70 && frame > 30) {
             angle += 3;
         }
 
-        if (time >= 0) {
-            posBird.y = x0 + time * time * 0.18 - 7.3 * time;
-            time++;
+        if (frame >= 0) {
+            posBird.y = y_ + frame * frame * 0.18 - 7.3 * frame;
+            frame++;
         }
 
         // when the bird touch the tree
@@ -140,7 +141,7 @@ void gBird::update(){
         }
 
         // when the bird fly out of the screen
-        if (posBird.y > SCREEN_HEIGHT -  bird_height || posBird.y < - 10 ) {
+        if (posBird.y > SCREEN_HEIGHT -  bird_height || posBird.y < - 5 ) {
             die = true;
         }
     }

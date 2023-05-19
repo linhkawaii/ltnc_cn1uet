@@ -40,6 +40,8 @@ public:
     gUtils();
     ~gUtils() {}
 
+    bool isNull();
+
     bool Load_Img(string path);
 
     int getWidth();

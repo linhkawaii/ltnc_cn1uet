@@ -20,6 +20,11 @@ int gUtils::getHeight(){
 	return tHeight;
 }
 
+bool gUtils::isNull(){
+    if (gTexture == NULL) return true;
+    return false;
+}
+
 void gUtils::free(){
 	if( gTexture != NULL ){
 		SDL_DestroyTexture( gTexture );

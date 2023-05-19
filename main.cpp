@@ -23,7 +23,6 @@ int main(int argc, char** argv){
                 }
 
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkQuit_Start()){
-                    // cout << "click quit" << endl;
                     menu.clickSound();
                     SDL_Delay(300);
                     Menu = false;
@@ -32,14 +31,12 @@ int main(int argc, char** argv){
                 }
 
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkHowToPlay()){
-                    // cout << "click howToPlay" << endl;
                     menu.clickSound();
                     Menu = false;
                     check = true;
                     break;
                 }
                 if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkStart()){
-                    // cout << "click start" << endl;
                     menu.clickSound();
                     running = true;
                     Menu = false;
@@ -60,7 +57,6 @@ int main(int argc, char** argv){
                         return 0;
                     }
                     if (e.type == SDL_MOUSEBUTTONDOWN && menu.checkBack()){
-                        // cout << "click back" << endl;
                         menu.clickSound();
                         Menu = true;
                         check=false;
