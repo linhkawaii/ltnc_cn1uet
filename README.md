@@ -56,7 +56,7 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 - Image editing software at https://www.canva.com/ and https://www.remove.bg/.
 - Many images and sounds are taken from different sources at https://www.google.com/?hl=vi.
 
-## ***Postscript***
+## ***Credit***
 I would like express my gratitude to:
 - Mr. Tran Quoc Long, Mr. Ta Viet Cuong
 - Mr. Le Bang Giang
