@@ -28,7 +28,6 @@ If your screen displays the message ***Windows protected your PC***, please clic
 ### ***Start Screen***
 Players will start the game with three options: ***start***, ***quit*** or ***how to play*** (to view game instructions).
 
-![Menu](img_readme/bg_start.png)
 
 ### ***Gameplay***
 - The game has been improved from the previous version, with columns that move unexpectedly and you cannot predict it beforehand. Players use the `SPACE` key or the `UP` key to control the bird to fly over the columns on the flight path. Your mission is to control the bird to avoid colliding with the columns or the game screen and collect points. When the bird flies over a column, you will get 1 point added.
@@ -36,12 +35,8 @@ Players will start the game with three options: ***start***, ***quit*** or ***ho
 
 - You can pause the game while playing by pressing the `Esc` key, where you have options: adjust the sound, ***resume***, ***restart*** or ***quit***.
 
-![paused](img_readme/pause.jpg)
-
 
 - When the game ends, the screen will display your score and the best score ever updated. Here you can choose to ***replay*** or ***quit***.
-
-![gameOver](img_readme/game_over.jpg)
 
 
 ## ***Programming Techniques***
